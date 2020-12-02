@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>菜逼逆袭之路</title>
+  
+  
+  <link href="http://example.com/atom.xml" rel="self"/>
+  
+  <link href="http://example.com/"/>
+  <updated>2020-12-02T15:40:25.366Z</updated>
+  <id>http://example.com/</id>
+  
+  <author>
+    <name>新手小菜逼</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>_data</title>
+    <link href="http://example.com/2020/12/02/data/"/>
+    <id>http://example.com/2020/12/02/data/</id>
+    <published>2020-12-02T15:40:25.000Z</published>
+    <updated>2020-12-02T15:40:25.366Z</updated>
+    
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>用两个stack实现queue and 用两个queue实现stack</title>
+    <link href="http://example.com/2020/12/02/%E7%94%A8%E4%B8%A4%E4%B8%AAstack%E5%AE%9E%E7%8E%B0queue-and-%E7%94%A8%E4%B8%A4%E4%B8%AAqueue%E5%AE%9E%E7%8E%B0stack/"/>
+    <id>http://example.com/2020/12/02/%E7%94%A8%E4%B8%A4%E4%B8%AAstack%E5%AE%9E%E7%8E%B0queue-and-%E7%94%A8%E4%B8%A4%E4%B8%AAqueue%E5%AE%9E%E7%8E%B0stack/</id>
+    <published>2020-12-02T13:31:56.000Z</published>
+    <updated>2020-12-02T14:02:16.159Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;用两个栈来实现一个队列，完成队列的Push和Pop操作。 队列中的元素为int类型&lt;/p&gt;
+&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>循环链表的基本操作</title>
+    <link href="http://example.com/2020/12/02/%E5%BE%AA%E7%8E%AF%E5%8D%95%E9%93%BE%E8%A1%A8%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/"/>
+    <id>http://example.com/2020/12/02/%E5%BE%AA%E7%8E%AF%E5%8D%95%E9%93%BE%E8%A1%A8%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/</id>
+    <published>2020-12-01T16:02:28.000Z</published>
+    <updated>2020-12-01T16:09:54.742Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h6 id=&quot;循环单链表&quot;&gt;&lt;a href=&quot;#循环单链表&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://example.com/2020/11/30/hello-world/"/>
+    <id>http://example.com/2020/11/30/hello-world/</id>
+    <published>2020-11-30T06:33:16.479Z</published>
+    <updated>2020-11-30T06:33:16.480Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+</feed>
