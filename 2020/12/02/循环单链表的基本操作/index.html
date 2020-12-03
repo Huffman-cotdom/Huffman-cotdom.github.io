@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>循环链表的基本操作 | 菜逼逆袭之路</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="循环单链表 其特点是最后一个节点的next不用指向None，而是指向表的头结点  本质上循环链表没有头和尾  循环链表的基本操作和代码实现 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697">
+<meta property="og:type" content="article">
+<meta property="og:title" content="循环链表的基本操作">
+<meta property="og:url" content="http://example.com/2020/12/02/%E5%BE%AA%E7%8E%AF%E5%8D%95%E9%93%BE%E8%A1%A8%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/index.html">
+<meta property="og:site_name" content="菜逼逆袭之路">
+<meta property="og:description" content="循环单链表 其特点是最后一个节点的next不用指向None，而是指向表的头结点  本质上循环链表没有头和尾  循环链表的基本操作和代码实现 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-12-01T16:02:28.000Z">
+<meta property="article:modified_time" content="2020-12-01T16:09:54.742Z">
+<meta property="article:author" content="新手小菜逼">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="菜逼逆袭之路" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">菜逼逆袭之路</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-循环单链表的基本操作" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/12/02/%E5%BE%AA%E7%8E%AF%E5%8D%95%E9%93%BE%E8%A1%A8%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" class="article-date">
+  <time datetime="2020-12-01T16:02:28.000Z" itemprop="datePublished">2020-12-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      循环链表的基本操作
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h6 id="循环单链表"><a href="#循环单链表" class="headerlink" title="循环单链表"></a>循环单链表</h6><ul>
+<li><p>其特点是最后一个节点的next不用指向None，而是指向表的头结点</p>
+</li>
+<li><p>本质上循环链表没有头和尾</p>
+</li>
+<li><p>循环链表的基本操作和代码实现</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SingleNode</span>(<span class="params"><span class="built_in">object</span></span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, item</span>):</span></span><br><span class="line">        self.item = item</span><br><span class="line">        self.<span class="built_in">next</span> = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__repr__</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">str</span>(self.item)</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SingleLinkList</span>(<span class="params"><span class="built_in">object</span></span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="string">&quot;&quot;&quot;尾结点&quot;&quot;&quot;</span></span><br><span class="line">        self.rear = <span class="literal">None</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">is_empty</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">return</span> self.rear == <span class="literal">None</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">treval</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">if</span> self.is_empty():</span><br><span class="line">            print(<span class="string">&#x27;空链表&#x27;</span>)</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        node = self.rear.<span class="built_in">next</span></span><br><span class="line">        <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">            print(node.item)</span><br><span class="line">            <span class="keyword">if</span> node == self.rear:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            node = node.<span class="built_in">next</span></span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">add</span>(<span class="params">self, item</span>):</span></span><br><span class="line">        <span class="string">&quot;头部添加元素&quot;</span></span><br><span class="line">        node = SingleNode(item)</span><br><span class="line">        <span class="comment"># 如果链表为空的话，直接创建一个结点指向自己</span></span><br><span class="line">        <span class="keyword">if</span> self.rear == <span class="literal">None</span>:</span><br><span class="line">            node.<span class="built_in">next</span> = node</span><br><span class="line">            self.rear = node</span><br><span class="line">        <span class="comment"># 如果链表不为空的话，直接在链表的尾部添加元素，因为循环链表没有本质意义上头尾</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            node.<span class="built_in">next</span> = self.rear.<span class="built_in">next</span></span><br><span class="line">            self.rear.<span class="built_in">next</span> = node</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">append</span>(<span class="params">self, item</span>):</span></span><br><span class="line">        <span class="string">&quot;尾部添加元素&quot;</span></span><br><span class="line">        <span class="comment"># 因为是循环链表，所谓尾部添加元素和头部添加元素是一样的，只需要注意尾指针的指向</span></span><br><span class="line">        self.add(item)</span><br><span class="line">        self.rear = self.rear.<span class="built_in">next</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">pop</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="string">&quot;&quot;&quot;前端弹出&quot;&quot;&quot;</span></span><br><span class="line">        <span class="keyword">if</span> self.rear == <span class="literal">None</span>:</span><br><span class="line">            print(<span class="string">&#x27;空链表&#x27;</span>)</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        node = self.rear.<span class="built_in">next</span></span><br><span class="line">        <span class="keyword">if</span> self.rear == node:</span><br><span class="line">            self.rear = <span class="literal">None</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            self.rear.<span class="built_in">next</span> = node.<span class="built_in">next</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">remove</span>(<span class="params">self, item</span>):</span></span><br><span class="line">        <span class="string">&#x27;&#x27;&#x27;删除节点&#x27;&#x27;&#x27;</span></span><br><span class="line">        <span class="keyword">if</span> self.is_empty():</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">        cur = self.rear</span><br><span class="line">        pre = <span class="literal">None</span></span><br><span class="line">        <span class="keyword">while</span> cur.<span class="built_in">next</span> != self.rear:</span><br><span class="line">            <span class="keyword">if</span> cur.item == item:</span><br><span class="line">            <span class="comment">#判断是否是尾结点</span></span><br><span class="line">                <span class="keyword">if</span> cur == self.rear:</span><br><span class="line">                    self.rear = cur.<span class="built_in">next</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    pre.<span class="built_in">next</span> = cur.<span class="built_in">next</span></span><br><span class="line">            <span class="comment">#如果不匹配就继续遍历下一个结点</span></span><br><span class="line">            pre = cur</span><br><span class="line">            cur = cur.<span class="built_in">next</span></span><br><span class="line">        <span class="comment">#退出循环后,cur指向尾结点</span></span><br><span class="line">        <span class="keyword">if</span> cur.item == item:</span><br><span class="line">            <span class="keyword">if</span> cur == self.rear:</span><br><span class="line">                self.rear = pre</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                pre.<span class="built_in">next</span> = cur.<span class="built_in">next</span></span><br><span class="line">        </span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">node = SingleNode(<span class="number">10</span>)</span><br><span class="line">link = SingleLinkList()</span><br><span class="line">link.add(node)</span><br><span class="line">print(link.is_empty())</span><br><span class="line">link.add(<span class="number">5</span>)</span><br><span class="line">link.treval()</span><br><span class="line">link.remove(<span class="number">5</span>)</span><br><span class="line">link.treval()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/12/02/%E5%BE%AA%E7%8E%AF%E5%8D%95%E9%93%BE%E8%A1%A8%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" data-id="cki7gmbb70003ris62ndhfccc" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/12/02/%E7%94%A8%E4%B8%A4%E4%B8%AAstack%E5%AE%9E%E7%8E%B0queue-and-%E7%94%A8%E4%B8%A4%E4%B8%AAqueue%E5%AE%9E%E7%8E%B0stack/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          用两个stack实现queue and 用两个queue实现stack
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/11/30/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Hello World</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">十二月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">十一月 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/12/02/%E7%94%A8%E4%B8%A4%E4%B8%AAstack%E5%AE%9E%E7%8E%B0queue-and-%E7%94%A8%E4%B8%A4%E4%B8%AAqueue%E5%AE%9E%E7%8E%B0stack/">用两个stack实现queue and 用两个queue实现stack</a>
+          </li>
+        
+          <li>
+            <a href="/2020/12/02/%E5%BE%AA%E7%8E%AF%E5%8D%95%E9%93%BE%E8%A1%A8%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/">循环链表的基本操作</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/30/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 新手小菜逼<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
