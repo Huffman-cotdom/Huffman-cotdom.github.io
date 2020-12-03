@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2020-12-02T14:02:16.159Z</updated>
+  <updated>2020-12-03T03:33:11.197Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,19 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>hello_python</title>
+    <link href="http://example.com/2020/12/03/hello-python/"/>
+    <id>http://example.com/2020/12/03/hello-python/</id>
+    <published>2020-12-03T03:33:11.000Z</published>
+    <updated>2020-12-03T03:33:11.197Z</updated>
+    
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>用两个stack实现queue and 用两个queue实现stack</title>
